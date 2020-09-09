@@ -5,6 +5,7 @@ import geek.example.lesson5Word.controller.WordCountRequest;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
@@ -14,6 +15,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import java.io.File;
 
 @SpringBootTest
+@AutoConfigureMockMvc
 class Lesson5ApplicationTests {
 
     @Autowired
@@ -34,7 +36,8 @@ class Lesson5ApplicationTests {
                 .contentType("application/json")
         );
 
-
+        result.andExpect(MockMvcResultMatchers.status().isOk());
+        Assertions.assertThat(result.andReturn().getResponse().getContentAsString()).isEqualTo("{\"idRequest\":1,\"mapCount\":{\"i\":1,\"grut\":2,\"am\":1}}");
     }
 
 }

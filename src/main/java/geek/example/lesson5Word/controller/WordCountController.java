@@ -1,7 +1,6 @@
 package geek.example.lesson5Word.controller;
 
 import geek.example.lesson5Word.service.CountWordService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,7 +27,7 @@ public class WordCountController {
 
         response.setIdRequest(wordCountRequest.getIdRequest());
         response.setMapCount(stringLongMap);
-        return wordCountResponse;
+        return response;
 
     }
 }

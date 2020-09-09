@@ -12,7 +12,7 @@ public class WordCountResponse implements Serializable {
 
     public void setIdRequest(Long idRequest){this.idRequest = idRequest;}
 
-    public Map<String, Long> getMapCount() {return mapCount;}
+    public Map<String,Long> getMapCount() {return mapCount;}
 
     public  void setMapCount(Map<String, Long> mapCount){this.mapCount = mapCount;}
 
